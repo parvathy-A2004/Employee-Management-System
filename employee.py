@@ -1,18 +1,18 @@
 emp = []
 def add():
     try:
-         emp_id = int(input("enter id: "))
+         emp_id = int(input("Enter id: "))
     except ValueError:
         print("Enter valid number: ")
         return
     for i in emp:
         if i["id"] == emp_id:
-            print("id already exist")
+            print("This id already exist")
             return
-    emp_name = input("enter name: ")
-    emp_dep = input("enter department: ")
+    emp_name = input("Enter name: ")
+    emp_dep = input("Enter department: ")
     try:
-        emp_salary = int(input("enter salary: "))
+        emp_salary = int(input("Enter salary: "))
     except ValueError:
         print("Enter valid salary: ")
         return
@@ -24,93 +24,93 @@ def view():
     if emp:
         for i in emp:
            
-            print("id: ",i["id"])
-            print("name: ",i["name"])
-            print('department: ',i["department"])
-            print("salary: ",i["salary"])
+            print("ID: ",i["id"])
+            print("Name: ",i["name"])
+            print('Department: ',i["department"])
+            print("Salary: ",i["salary"])
             print()
           
     else:
-        print("no employee found")
+        print("No employees found")
 def search():
     if emp:
         found = False
         try:
-            val = int(input("enter id:"))
+            val = int(input("Enter id:"))
         except ValueError:
-            print("enter valid id:")
+            print("Enter valid id:")
             return
         for i in emp:
             if i["id"] == val:
-                print("found")
-                print("id: ",i["id"])
-                print("name: ",i["name"])
-                print("department: ",i["department"])
-                print("salary: ",i["salary"])
+                print("Found")
+                print("ID: ",i["id"])
+                print("Name: ",i["name"])
+                print("Department: ",i["department"])
+                print("Salary: ",i["salary"])
                 found = True
         if not found:
-            print("id not found")
+            print("This employee not found")
     else:
-        print("no employee found")
+        print("No employee found")
 def delete():
     if emp:
         found = False
         try:
-            val = int(input("enter id: "))
+            val = int(input("Enter id: "))
         except ValueError:
-            print("enter valid number: ")
+            print("Enter valid number: ")
             return
         for i in emp:
             if i["id"] == val:
                 emp.remove(i)
-                print("deleted successfully")
+                print("Deleted successfully")
                 found = True
                 return
         if not found:
-            print("id not found")
+            print("this employee not found")
     else:
-        print("no employee found")
+        print("No employee found")
 def update():
     if emp:
         found = False
         try:
-            val = int(input("enter id: "))
+            val = int(input("Enter id: "))
         except ValueError:
-            print("enter valid id: ")
+            print("Enter valid id: ")
             return
         for i in emp:
             if i["id"] == val:
                 try:
-                    newid = int(input("enter new id: "))
+                    newid = int(input("Enter new id: "))
                 except ValueError:
-                    print("enter valid number: ")
+                    print("Enter valid number: ")
                     return
                 for j in emp:
 
                    if j["id"] == newid and newid != val:
-                        print("already exist")
+                        print("Already exist")
                         return
                     
-                newname = input("enter new name: ")
-                newdep = input("enter new department: ")
+                newname = input("Enter new name: ")
+                newdep = input("Enter new department: ")
                 try:
-                    newsalary = int(input("enter new salary: "))
+                    newsalary = int(input("Enter new salary: "))
                 except ValueError:
-                    print("enter valid salary: ")
+                    print("Enter valid salary: ")
                     return
                 
                 i["id"] = newid
                 i["name"] = newname
                 i["department"] = newdep
                 i["salary"] = newsalary
-                print("updated successfully")
+                print("Updated successfully")
                 found = True
                 break
                     
         if not found:
-            print("employee not found")
+            print("Employee not found")
     else:
-        print("no employee found")
+        print("No employee found")
 def totalSalary():
     if emp:
         total = 0
@@ -118,7 +118,7 @@ def totalSalary():
             total = total + i["salary"]
         print("Total salary is: ",total)
     else:
-        print("no employee")
+        print("No employee")
 def averageSalary():
     if emp:
          total = 0
@@ -127,14 +127,14 @@ def averageSalary():
             total = total + i["salary"]
          print("Average salary is: {:.2f}".format(total/count))
     else:
-        print("no employee")
+        print("No employee")
         
 def countemp():
     if emp:
         count = len(emp)
-        print("no of employees: ",count)
+        print("No of employees: ",count)
     else:
-        print("no employee")
+        print("No employee")
 def highSalary():
     if emp:
         highest = emp[0]
@@ -142,76 +142,76 @@ def highSalary():
             
             if i["salary"] > highest["salary"]:
                highest = i
-        print("highest salary is: ",highest["salary"])
-        print("id: ",highest["id"])   
-        print("name: ",highest["name"])
-        print("department: ",highest["department"])
+        print("Highest salary is: ",highest["salary"])
+        print("Id: ",highest["id"])   
+        print("Name: ",highest["name"])
+        print("Department: ",highest["department"])
     else:
-        print("no employee")
+        print("No employee")
 def lowSalary():
     if emp:
         lowest = emp[0]
         for i in emp:
             if i["salary"] < lowest["salary"]:
                 lowest = i
-        print("lowest salary: ",lowest["salary"])
-        print("id: ",lowest["id"])
-        print("name: ",lowest["name"])
-        print("department: ",lowest["department"])
+        print("Lowest salary: ",lowest["salary"])
+        print("Id: ",lowest["id"])
+        print("Name: ",lowest["name"])
+        print("Department: ",lowest["department"])
     else:
-        print("no employee")
+        print("No employee")
 def searchByDepartment():
     if emp:
-        dep = input("enter department: ")
+        dep = input("Enter department: ")
         found = False
         for i in emp:
             if i["department"].lower() == dep.lower():
-                print("id: ",i["id"])
-                print("name: ",i["name"])
-                print("department: ",i["department"])
-                print("salary: ",i["salary"])
+                print("ID: ",i["id"])
+                print("Name: ",i["name"])
+                print("Department: ",i["department"])
+                print("Salary: ",i["salary"])
                 print()
                 found = True
         if not found:
-            print("no employee in this department")
+            print("No employee in this department")
     else:
-        print("no employee")
+        print("No employee")
 def empCountByDep():
     if emp:
-        dep = input("enter department:")
+        dep = input("Enter department:")
         count = 0
         for i in emp:
             if i["department"].lower() == dep.lower():
                 count = count + 1
         if count > 0:
-            print("department: ",dep)
-            print("no of employees: ",count) 
+            print("Department: ",dep)
+            print("No of employees: ",count) 
         else:
-            print("no employee in this department")
+            print("No employee in this department")
     else:
-        print("no employee")
+        print("No employee")
 def sortEmpBySalary():
     if emp:
         sort_list = sorted(emp, key=lambda x: x["salary"], reverse=True)
         for i in sort_list:
-            print("id: ",i["id"])
-            print("name: ",i["name"])
-            print("department: ",i["department"])
-            print("salary: ",i["salary"])
+            print("ID: ",i["id"])
+            print("Name: ",i["name"])
+            print("Department: ",i["department"])
+            print("Salary: ",i["salary"])
             print()
     else:
-        print("no employee")
+        print("No employee")
 def sortByName():
     if emp:
          sort_list = sorted(emp, key=lambda x:x["name"].lower())
          for i in sort_list:
-             print("id: ",i["id"])
-             print("name: ",i["name"])
-             print("department: ",i["department"])
-             print("salary: ",i["salary"])
+             print("ID: ",i["id"])
+             print("Name: ",i["name"])
+             print("Department: ",i["department"])
+             print("Salary: ",i["salary"])
              print()
     else:
-        print("no employee")
+        print("No employee")
 def empAboveAvgSalary():
     if emp:
         found = False
@@ -222,44 +222,44 @@ def empAboveAvgSalary():
         
         for i in emp:
             if i["salary"] > Avg:
-                print("id: ",i["id"])
-                print("name: ",i["name"])
-                print("department: ",i["department"])
-                print("salary: ",i["salary"])
+                print("ID: ",i["id"])
+                print("Name: ",i["name"])
+                print("Department: ",i["department"])
+                print("Salary: ",i["salary"])
                 print()
                 found = True
         if not found:
-            print("no employees above average salary")
+            print("No employees above average salary")
     else:
-        print("no employee")
+        print("No employee")
 def secondHighSalary():
     if emp:
         if len(emp) < 2:
-            print("need atleast 2 employees")
+            print("Need atleast 2 employees")
             return
         else:
             sort_list = sorted(emp, key=lambda x: x["salary"], reverse=True)
             sec = sort_list[1]
-            print("id:",sec["id"])
-            print("name: ",sec["name"])
-            print("department: ",sec["department"])
-            print("salary: ",sec["salary"])
+            print("ID:",sec["id"])
+            print("Name: ",sec["name"])
+            print("Department: ",sec["department"])
+            print("Salary: ",sec["salary"])
     else:
-        print("no employee")
+        print("No employee")
 def thirdHighSalary():
     if emp:
         if len(emp) <3:
-            print("need atlest 3 employees")
+            print("Need atlest 3 employees")
             return
         else:
             sort_list = sorted(emp, key=lambda x: x["salary"], reverse=True)
             third = sort_list[2]
-            print("id:",third["id"])
-            print("name:",third["name"])
-            print("department:",third["department"])
-            print("salary:",third["salary"])
+            print("ID:",third["id"])
+            print("Name:",third["name"])
+            print("Department:",third["department"])
+            print("Salary:",third["salary"])
     else:
-        print("no employee")
+        print("No employee")
 def saveFile():
     if emp:
         with open("emp_data.txt","w") as file:
@@ -268,7 +268,7 @@ def saveFile():
             print("Data saved successfully")
         
     else:
-        print("no data")
+        print("No data")
 def loadFile():
     try:
         with open("emp_data.txt","r") as f:
@@ -282,63 +282,63 @@ def loadFile():
                             "salary" : int(data[3])
                             }
                 emp.append(employee)
-            print("data loaded successfully")
+            print("Data loaded successfully")
     except FileNotFoundError:
-        print("file not found")
+        print("File not found")
 def searchByname():
     if emp:
-        name = input("enter the name: ")
+        name = input("Enter the name: ")
         found = False
         for i in emp:
             if i["name"].lower() == name.lower():
-                print("found")
-                print("id :",i["id"])
-                print("name :",i["name"])
-                print("department :",i["department"])
-                print("salary :",i["salary"])
+                print("Found")
+                print("ID :",i["id"])
+                print("Name :",i["name"])
+                print("Department :",i["department"])
+                print("Salary :",i["salary"])
                 found = True
         if not found:
-            print("not found")
+            print("Not found")
     else:
-        print("no employee")
+        print("No employee")
 def depSalary():
     if emp:
           found = False
-          dep = input("enter department: ")
+          dep = input("Enter department: ")
           salary = 0
           for i in emp:
               if i["department"].lower() == dep.lower():
                   salary += i["salary"]
                   found = True
           if found == True:
-              print("total salary of ",dep,"dep: ",salary)
+              print("Total salary of ",dep,"dep: ",salary)
           else:
-              print("no employees in this department")
+              print("No employees in this department")
     else:
-        print("no employee")
+        print("No employee")
 def remEmployee():
     if emp:
         emp.clear()
         print("Removed successfully")
     else:
-        print("no employee")
+        print("No employee")
 
 def depEmp():
     if emp:
-        dep = input("enter department")
+        dep = input("Enter department")
         found = False
         for i in emp:
             if i["department"].lower() == dep.lower():
-                print("id:",i['id'])
-                print("name:",i["name"])
-                print("department:",i["department"])
-                print("salary:",i["salary"])
+                print("ID:",i['id'])
+                print("Name:",i["name"])
+                print("Department:",i["department"])
+                print("Salary:",i["salary"])
                 print()
                 found = True
         if not found:
-            print("no employees in this department")
+            print("No employees in this department")
     else:
-        print("no employee")
+        print("No employee")
 def exportCsv():
     if emp:
         with open("employees.csv","w") as f:
@@ -349,101 +349,101 @@ def exportCsv():
             print("Export to csv successfully")   
 
     else:
-        print("no employee")
+        print("No employee")
 def empBySalaryRange():
     if emp:
         found = False
         try:
-            minsal = int(input("enter minimum range"))
-            maxsal = int(input("enter maximum range"))
+            minsal = int(input("Enter minimum range"))
+            maxsal = int(input("Enter maximum range"))
         except ValueError:
-            print("enter valid input")
+            print("Enter valid input")
             return
         for i in emp:
             if i["salary"] >= minsal and i["salary"] <=maxsal:
-                print("id ",i["id"])
-                print("name ",i["name"])
-                print("department ",i["department"])
-                print("salary ",i["salary"])
+                print("ID ",i["id"])
+                print("Name ",i["name"])
+                print("Department ",i["department"])
+                print("Salary ",i["salary"])
                 print()
                 found = True
         if not found:
-            print("no employee in between this range")
+            print("No employee in between this range")
     else:
-        print("no employee")
+        print("No employee")
 
 def increaseSalary():
     if emp:
         try:
-            percentage = float(input("enter percentage"))
+            percentage = float(input("Enter percentage"))
         except ValueError:
-            print("enter valid input")
+            print("Enter valid input")
             return
         for i in emp:
             i["salary"] += i["salary"] * percentage / 100
-        print("salary updated successfully")
+        print("Salary updated successfully")
     else:
-        print("no employee")
+        print("No employee")
 def increaseSalByDep():
     if emp:
         found = False
-        dep = input("enter department")
+        dep = input("Enter department")
         try:
-            percentage = float(input("enter percentage"))
+            percentage = float(input("Enter increment percentage"))
         except ValueError:
-            print("enter valid input")
+            print("Enter valid input")
             return
         for i in emp:
             if i["department"].lower() == dep.lower():
                 i["salary"] = round(i["salary"] * (1 + percentage / 100), 2)
                 found = True
         if not found:
-            print("no employee in this department")
+            print("No employee in this department")
     else:
-        print("no employees")
+        print("No employees")
 def lowSalByDep():
     if emp:
-        dep = input("enter department")
+        dep = input("Enter department")
         dept_salary = []
         for i in emp:
             if i["department"].lower() == dep.lower():
                 dept_salary.append(i)
         if dept_salary:
             lowest = min(dept_salary, key=lambda x: x["salary"])
-            print("lowest salary is ", lowest["salary"])
-            print("id ",lowest["id"])
-            print("name ",lowest["name"])
-            print("department ",lowest["department"])
+            print("Lowest salary is ", lowest["salary"])
+            print("ID ",lowest["id"])
+            print("Name ",lowest["name"])
+            print("Department ",lowest["department"])
             
         else:
-            print("no employee in this department")
+            print("No employee in this department")
     else:
-        print("no employee")
+        print("No employee")
 
 def highsalByDep():
     if emp:
       
-        dep = input("enter department")
+        dep = input("Enter department")
         dept_salary = []
         for i in emp:
             if i["department"].lower() == dep.lower():
                 dept_salary.append(i)
         if dept_salary:
             highest = max(dept_salary, key=lambda x: x["salary"])
-            print("highest salary is ",highest["salary"])
-            print("id ",highest["id"])
-            print("name ",highest["name"])
-            print("department ",highest["department"])
+            print("Highest salary is ",highest["salary"])
+            print("ID ",highest["id"])
+            print("Name ",highest["name"])
+            print("Department ",highest["department"])
             
         else:
-            print("no employee in this department")
+            print("No employee in this department")
     else:
-        print("no employees")
+        print("No employees")
 
 def AvgSalByDep():
     if emp:
        
-        dep = input("enter department")
+        dep = input("Enter department")
         total_Salary = count = 0
         for i in emp:
             if i["department"].lower() == dep.lower():
@@ -454,17 +454,17 @@ def AvgSalByDep():
             print("average salary is ",total_Salary / count)
         else:
         
-            print("no employee in this department")
+            print("No employee in this department")
     else:
-        print("no employees")
+        print("No employees")
 
         
 while True:
-    print("1.Add 😂")
-    print("2.View")
-    print("3.Search")
-    print("4.Delete")
-    print("5.Update")
+    print("1.Add Employee")
+    print("2.View Employees")
+    print("3.Search Employee")
+    print("4.Delete Employee")
+    print("5.Update Employee")
     print("6.total salary")
     print('7.count employee')
     print("8.highest salary")
